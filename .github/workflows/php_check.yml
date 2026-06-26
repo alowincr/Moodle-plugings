@@ -8,14 +8,12 @@ jobs:
       - name: Descargar código
         uses: actions/checkout@v3
 
-      - name: Instalar PHP CodeSniffer
-        run: |
-          composer require --dev "squizlabs/php_codesniffer=*"
+      - name: Instalar herramientas
+        run: composer require --dev "squizlabs/php_codesniffer=*"
 
-      - name: Ejecutar corrección automática (PHPCBF)
+      - name: Auto-corrección (PHPCBF)
         run: |
           ./vendor/bin/phpcbf --standard=PSR12 local_seguridad/ local_aichat/ local_aipredict/ || true
-
-      - name: Ejecutar validación final (PHPCS)
-        run: |
-          ./vendor/bin/phpcs --standard=PSR12 local_seguridad/ local_aichat/ local_aipredict/
+          
+      - name: Validación final (PHPCS)
+        run: ./vendor/bin/phpcs --standard=PSR12 local_seguridad/ local_aichat/ local_aipredict/
