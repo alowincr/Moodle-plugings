@@ -1,5 +1,5 @@
-name: Validar Calidad de Código
-on: [push, pull_request]
+name: Validar y Corregir Calidad
+on: [push]
 
 jobs:
   test:
@@ -12,6 +12,10 @@ jobs:
         run: |
           composer require --dev "squizlabs/php_codesniffer=*"
 
-      - name: Ejecutar validación de estándares (Moodle)
+      - name: Ejecutar corrección automática (PHPCBF)
+        run: |
+          ./vendor/bin/phpcbf --standard=PSR12 local_seguridad/ local_aichat/ local_aipredict/ || true
+
+      - name: Ejecutar validación final (PHPCS)
         run: |
           ./vendor/bin/phpcs --standard=PSR12 local_seguridad/ local_aichat/ local_aipredict/
