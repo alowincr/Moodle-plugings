@@ -1,0 +1,17 @@
+name: Validar Calidad de Código
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar código
+        uses: actions/checkout@v3
+
+      - name: Instalar PHP CodeSniffer
+        run: |
+          composer require --dev "squizlabs/php_codesniffer=*"
+
+      - name: Ejecutar validación de estándares (Moodle)
+        run: |
+          ./vendor/bin/phpcs --standard=PSR12 local_seguridad/ local_aichat/ local_aipredict/
