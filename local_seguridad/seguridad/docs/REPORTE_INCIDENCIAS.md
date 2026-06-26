@@ -1,0 +1,1 @@
+2026-06-10: Bloqueo de evento copy/paste. Prioridad: Alta. Estado: Resuelto. Solución: Deshabilitado mediante JS para evitar plagio.

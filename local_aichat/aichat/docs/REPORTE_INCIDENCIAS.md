@@ -1,0 +1,1 @@
+2026-06-15: Límite de caracteres en prompt. Prioridad: Media. Estado: Cerrado. Solución: Ajuste de validación en locallib.php para truncar a 2000 caracteres.

@@ -1,0 +1,1 @@
+2026-06-20: Precisión de clústeres. Prioridad: Alta. Estado: Cerrado. Solución: Ajuste del parámetro k en el algoritmo de clustering tras pruebas de validación.
